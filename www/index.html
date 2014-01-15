@@ -65,11 +65,11 @@
                   <div id='fileTable' style='display:none'></div>
 
 
-                  <p id='dropText'>Drop your file here</p>
+                 <p id='dropText'>Drop your files here</p>
                   <br/>
                   <span class="btn btn-success fileinput-button">
                     <i class="icon-plus icon-white"></i>
-                    <span>Add file...</span>
+                    <span>Add files...</span>
                     <!-- The file input field used as target for the file upload widget -->
                     <input id="fileupload" type="file" name="files[]" multiple>
                   </span>
@@ -100,11 +100,13 @@
                         Output Coordinate System
                       </div>
                       <div class="controls">
-                        <select class='input-xxlarge' id='name="SchemaFile"'>
-                          <option value="$(FME_SHAREDRESOURCE_DATA)Demos/INSPIRE_Schemas/CadastralParcels.xsd"> CadastralParcels</option>
-  							<option value="$(FME_SHAREDRESOURCE_DATA)Demos/INSPIRE_Schemas/AdministrativeUnits.xsd"> AdministrativeUnits</option>
-  							<option value="$(FME_SHAREDRESOURCE_DATA)Demos/INSPIRE_Schemas/ProtectedSites.xsd"> ProtectedSites</option>
-   							<option value="$(FME_SHAREDRESOURCE_DATA)Demos/INSPIRE_Schemas/GeographicalNames.xsd">GeographicalNames</option>
+                        <select class='input-xxlarge' id='COORDSYS_Dest'>
+                          <option value="">*Keep Same as Source*</option>
+                          <option value="LL84">WGS84</option>
+                          <option value="WGS84.Geocentric_FME">WGS84 Geocentric</option>
+                          <option value="EPSG:3395">Mercator Projection for the World</option>
+                          <option value="WORLD-ROBINSON">Robinson Projection for the World</option>
+                          <option value="EPSG:102100">Spherical Mercator</option>
                         </select>
                       </div>
                     </div>
