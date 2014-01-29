@@ -199,7 +199,7 @@ var BuildForm = {
 				
 
 				//submit
-				$.getJSON(submitUrl)
+				$.get(submitUrl)
 					.done(function(result){					
 						 BuildForm.displayResults(result, true);
 					})
@@ -210,8 +210,7 @@ var BuildForm = {
 						//error code: textStatus.status
 						//error text: textStatus.statusText
 						//FME Error: textStatus.responseJSON.serviceResponse.fmeTransformationResult.fmeEngineResponse.statusMessage
-						var error = textStatus;		
-						BuildForm.displayResults(error, false);
+						BuildForm.displayResults(result, false);
 					});
 			}
 		}
@@ -220,36 +219,19 @@ var BuildForm = {
 	displayResults : function(result, isSuccess){
 		//hide loading image
 		$('#loadingImage').hide();
-
+		$('#results').empty();
 		//show back button
 		$('#back').show();
 
 		//get the JSON response from the Server and displays information on the page
-		var resultStatus = $('<div id="resultStatus" />');
+
 
 		if (isSuccess){
-			resultStatus.append("<h3>Your data has successfully been translated!</h3>");
-			resultStatus.append("<br />");
-			var resultLink = $('<div id="resultLink" />');
-
-			var link = '<a href="' + result.serviceResponse.url + '">' +"Download Results" + '</a>';
-			resultLink.append(link);
-
-			resultStatus.append(resultLink);
+			var resultStatus = $('<h3>Transformation Successful</h3>');
+			resultStatus.append(result);
 		}
 		else{
-			var FMEError = result.responseJSON.serviceResponse.fmeTransformationResult.fmeEngineResponse.statusMessage;
-			resultStatus.append("<h3>There was an error submitting your request</h3>");
-			resultStatus.append('<br/>');
-			resultStatus.append('<p class="errorMsg">Error ' + result.status + ': ' + result.statusText + '</p>');
-			if (FMEError == "Translation Successful"){
-				resultStatus.append('<p class="errorMsg">No features were read from the source dataset</p>');
-			}
-			else{
-				resultStatus.append('<p class="errorMsg" >' + FMEError + '</p>');
-			}
-			resultStatus.append('<br/>');
-			resultStatus.append('<p class="errorNote">Use the back arrow to return to the start page.</p>');
+			var resultStatus = $('<h3>There was an error submitting your request</h3>');
 		}
 
 		$('#results').append(resultStatus);
