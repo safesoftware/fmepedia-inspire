@@ -10,9 +10,9 @@ $(document).ready(function() {
 var BuildForm = {
 	token : 'b442e0b8ea9f85c1860ee85d8c6709d36ab40bb4',
 	host : 'http://fmepedia2014-safe-software.fmecloud.com',
-	repository : 'Samples',
-	workspaceName : 'validator',
-	workspacePath : "Samples/easyTranslator.fmw",
+	repository : 'INSPIRE',
+	workspaceName : 'Validation',
+	workspacePath : "INSPIRE/Validation.fmw",
 	sessionID : "",
 
 	init : function() {
