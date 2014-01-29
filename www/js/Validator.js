@@ -196,8 +196,8 @@ var BuildForm = {
 				var outputCoordSys = $('#COORDSYS_Dest')[0].value;
 
 				//build url
-				var submitUrl = BuildForm.host + '/fmedatadownload/' + BuildForm.workspacePath + '?INSPIRGML=' + files;
-				submitUrl = submitUrl + '&SchemaFile=' + %22%24(FME_SHAREDRESOURCE_DATA)Demos%2FINSPIRE_Schemas%2FCadastralParcels.xsd%22;
+				var submitUrl = BuildForm.host + '/fmedatastreaming	/' + BuildForm.workspacePath + '?INSPIRGML=' + files;
+				submitUrl = submitUrl + '&SchemaFile=' + '$(FME_SHAREDRESOURCE_DATA)Demos/INSPIRE_Schemas/CadastralParcels.xsd';
 				//submitUrl = submitUrl + '&DestinationFormat=' + destFormat;
 				//submitUrl = submitUrl + '&COORDSYS_Dest=' + outputCoordSys + '&opt_responseformat=json';
 
