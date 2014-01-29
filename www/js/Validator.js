@@ -190,16 +190,13 @@ var BuildForm = {
 
 				files = files + '"';
 
-				//get parameter values
-				var sourceFormat = $('#SourceFormat')[0].value;	
-				var destFormat = $('#DestinationFormat')[0].value;
-				var outputCoordSys = $('#COORDSYS_Dest')[0].value;
+				//get parameter values				
+				var SchemaFile = $('#SchemaFile')[0].value;
 
 				//build url
 				var submitUrl = BuildForm.host + '/fmedatastreaming	/' + BuildForm.workspacePath + '?INSPIRGML=' + files;
-				submitUrl = submitUrl + '&SchemaFile=' + '$(FME_SHAREDRESOURCE_DATA)Demos/INSPIRE_Schemas/CadastralParcels.xsd';
-				//submitUrl = submitUrl + '&DestinationFormat=' + destFormat;
-				//submitUrl = submitUrl + '&COORDSYS_Dest=' + outputCoordSys + '&opt_responseformat=json';
+				submitUrl = submitUrl + '&SchemaFile=' + SchemaFile;
+				
 
 				//submit
 				$.getJSON(submitUrl)

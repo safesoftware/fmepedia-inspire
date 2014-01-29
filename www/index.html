@@ -97,16 +97,14 @@
                     </div>
                     <div class="control-group">
                       <div class="control-label">
-                        Output Coordinate System
+                        Choose Theme:
                       </div>
                       <div class="controls">
-                        <select class='input-xxlarge' id='COORDSYS_Dest'>
-                          <option value="">*Keep Same as Source*</option>
-                          <option value="LL84">WGS84</option>
-                          <option value="WGS84.Geocentric_FME">WGS84 Geocentric</option>
-                          <option value="EPSG:3395">Mercator Projection for the World</option>
-                          <option value="WORLD-ROBINSON">Robinson Projection for the World</option>
-                          <option value="EPSG:102100">Spherical Mercator</option>
+                        <select class='input-xxlarge' id='SchemaFile'>                          
+                        	<option value="$(FME_SHAREDRESOURCE_DATA)ValidationSchemaFiles/CadastralParcels.xsd"> CadastralParcels</option>
+  							<option value="$(FME_SHAREDRESOURCE_DATA)ValidationSchemaFiles/AdministrativeUnits.xsd"> AdministrativeUnits</option>
+  							<option value="$(FME_SHAREDRESOURCE_DATA)ValidationSchemaFiles/ProtectedSites.xsd"> ProtectedSites</option>
+   							<option value="$(FME_SHAREDRESOURCE_DATA)ValidationSchemaFiles/GeographicalNames.xsd">GeographicalNames</option>                                                  
                         </select>
                       </div>
                     </div>
