@@ -58,18 +58,31 @@
           <div class="carousel-inner">
             <div id="submissionPage" class="active item">
               <section id='submission' class='container'>
+<<<<<<< HEAD
                 <h2>Easy Translator</h2>
                 <blockquote>Upload any file-based format and translate data immediately into the required format and coordinate system.</blockquote>
+=======
+                <h2>INSPIRE GML Validator</h2>
+                <blockquote>Select your INSPIRE Theme from the list and upload your file fo validation.</blockquote>
+>>>>>>> 5a642f994796fdc4b0fc47c5dfc4a3df45768ea1
                 <div id='dropzone' class='fade well well-large'>
                   <!-- The container for the uploaded files -->
                   <div id='fileTable' style='display:none'></div>
 
 
+<<<<<<< HEAD
                   <p id='dropText'>Drop your files here</p>
                   <br/>
                   <span class="btn btn-success fileinput-button">
                     <i class="icon-plus icon-white"></i>
                     <span>Add files...</span>
+=======
+                  <p id='dropText'>Drop your file here</p>
+                  <br/>
+                  <span class="btn btn-success fileinput-button">
+                    <i class="icon-plus icon-white"></i>
+                    <span>Add file...</span>
+>>>>>>> 5a642f994796fdc4b0fc47c5dfc4a3df45768ea1
                     <!-- The file input field used as target for the file upload widget -->
                     <input id="fileupload" type="file" name="files[]" multiple>
                   </span>
@@ -100,6 +113,7 @@
                         Output Coordinate System
                       </div>
                       <div class="controls">
+<<<<<<< HEAD
                         <select class='input-xxlarge' id='COORDSYS_Dest'>
                           <option value="">*Keep Same as Source*</option>
                           <option value="LL84">WGS84</option>
@@ -107,6 +121,13 @@
                           <option value="EPSG:3395">Mercator Projection for the World</option>
                           <option value="WORLD-ROBINSON">Robinson Projection for the World</option>
                           <option value="EPSG:102100">Spherical Mercator</option>
+=======
+                        <select class='input-xxlarge' id='name="SchemaFile"'>
+                          <option value="$(FME_SHAREDRESOURCE_DATA)ValidationSchemaFiles/CadastralParcels.xsd"> CadastralParcels</option>
+  							<option value="$(FME_SHAREDRESOURCE_DATA)ValidationSchemaFiles/AdministrativeUnits.xsd"> AdministrativeUnits</option>
+  							<option value="$(FME_SHAREDRESOURCE_DATA)ValidationSchemaFiles/ProtectedSites.xsd"> ProtectedSites</option>
+   							<option value="$(FME_SHAREDRESOURCE_DATA)ValidationSchemaFiles/GeographicalNames.xsd">GeographicalNames</option>
+>>>>>>> 5a642f994796fdc4b0fc47c5dfc4a3df45768ea1
                         </select>
                       </div>
                     </div>
