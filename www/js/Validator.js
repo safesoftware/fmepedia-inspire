@@ -180,7 +180,7 @@ var BuildForm = {
 				$('#myCarousel').carousel('next');
 
 				//submit to server
-				var filePath = '$(FME_DATA_REPOSITORY)/Samples/easyTranslator.fmw/'; 
+				var filePath = '$(FME_DATA_REPOSITORY)/INSPIRE/Validation.fmw/'; 
 
 				for (var i = 0; i < fileList.length; i++){
 					if (fileList[i].lastChild.textContent == 'Selected'){
@@ -196,10 +196,10 @@ var BuildForm = {
 				var outputCoordSys = $('#COORDSYS_Dest')[0].value;
 
 				//build url
-				var submitUrl = BuildForm.host + '/fmedatadownload/' + BuildForm.workspacePath + '?SourceDataset_GENERIC=' + files;
-				submitUrl = submitUrl + '&SourceFormat=' + sourceFormat;
-				submitUrl = submitUrl + '&DestinationFormat=' + destFormat;
-				submitUrl = submitUrl + '&COORDSYS_Dest=' + outputCoordSys + '&opt_responseformat=json';
+				var submitUrl = BuildForm.host + '/fmedatadownload/' + BuildForm.workspacePath + '?INSPIRGML=' + files;
+				submitUrl = submitUrl + '&SchemaFile=' + %22%24(FME_SHAREDRESOURCE_DATA)Demos%2FINSPIRE_Schemas%2FCadastralParcels.xsd%22;
+				//submitUrl = submitUrl + '&DestinationFormat=' + destFormat;
+				//submitUrl = submitUrl + '&COORDSYS_Dest=' + outputCoordSys + '&opt_responseformat=json';
 
 				//submit
 				$.getJSON(submitUrl)
