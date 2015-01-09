@@ -1,21 +1,23 @@
 //Do this as soon as the DOM is ready
 $(document).ready(function() {
-
-	//Build up the form
-	BuildForm.init();
+  $.getJSON("http://demos.fmeserver.com.s3.amazonaws.com/server-demo-config.json", function(config) {
+		//Build up the form
+		BuildForm.init(config.initObject);
+	});
 	
 });
 
 
 var BuildForm = {
-	token : 'fb1c3ee6828e6814c75512dd4770a02e73d913b8',
-	host : 'https://fmepedia2014-safe-software.fmecloud.com',
 	repository : 'INSPIRE',
-	workspaceName : 'Validation',
+	workspaceName : 'Validation.fmw',
 	workspacePath : "INSPIRE/Validation.fmw",
 	sessionID : "",
 
-	init : function() {
+	init : function(initObject) {
+		BuildForm.token = initObject.token;
+		BuildForm.host = initObject.server;
+	
 		//prevent carousel from automatically moving
 		$('#myCarousel').carousel('pause');
 
@@ -32,8 +34,7 @@ var BuildForm = {
 				$('#loadingImage').show();
 			}
 		})
-
-		FMEServer.connectToServer(BuildForm.host, BuildForm.token);
+		FMEServer.connectToServer(initObject.server, initObject.token);
 		//Call server to get list of parameters and potential values
 		var result = FMEServer.getParams(BuildForm.repository, BuildForm.workspaceName);
 		this.sessionID = FMEServer.getSessionID(BuildForm.workspacePath);
