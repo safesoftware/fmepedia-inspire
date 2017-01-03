@@ -3,13 +3,13 @@ $(document).ready(function() {
 
 	//Build up the form
 	BuildForm.init();
-	
+
 });
 
 
 var BuildForm = {
-	token : 'fb1c3ee6828e6814c75512dd4770a02e73d913b8',
-	host : 'https://fmepedia2014-safe-software.fmecloud.com',
+	token : '568c604bc1f235bbe137c514e7c61a8436043070',
+	host : 'https://demos-safe-software.fmecloud.com',
 	repository : 'INSPIRE',
 	workspaceName : 'Validation',
 	workspacePath : "INSPIRE/Validation.fmw",
@@ -48,7 +48,7 @@ var BuildForm = {
 			dropzone: $('#dropzone'),
 			autoUpload: true,
 
-			//when a new file is added either through drag and drop or 
+			//when a new file is added either through drag and drop or
 			//file selection dialog
 			add: function(e, data){
 				//displays filename and progress bar for any uploading files
@@ -77,7 +77,7 @@ var BuildForm = {
 			},
 
 			done: function(e, data){
-				//update list of uploaded files with button to select 
+				//update list of uploaded files with button to select
 				//them as source datasets for translation
 				var elemName = data.files[0].name;
 				elemName = elemName.replace('.', '');
@@ -89,7 +89,7 @@ var BuildForm = {
 				var button = $("<div class='fileBtn'/>");
 				button.append("<button class='btn' onClick='BuildForm.toggleSelection(this)'>Select this File</button>");
 				button.insertAfter('#' + elemName);
-			}, 
+			},
 
 			fail: function(e, data) {
 				$.each(data.result.files, function(index, file) {
@@ -154,7 +154,7 @@ var BuildForm = {
 	},
 
 	submit : function() {
-		var files = '"'; 
+		var files = '"';
 		var fileList = $('.fileRow');
 
 		//check a file has been uploaded and at least one is selected
@@ -180,7 +180,7 @@ var BuildForm = {
 				$('#myCarousel').carousel('next');
 
 				//submit to server
-				var filePath = '$(FME_DATA_REPOSITORY)/INSPIRE/Validation.fmw/'; 
+				var filePath = '$(FME_DATA_REPOSITORY)/INSPIRE/Validation.fmw/';
 
 				for (var i = 0; i < fileList.length; i++){
 					if (fileList[i].lastChild.textContent == 'Selected'){
@@ -190,17 +190,17 @@ var BuildForm = {
 
 				files = files + '"';
 
-				//get parameter values				
+				//get parameter values
 				var SchemaFile = $('#SchemaFile')[0].value;
 
 				//build url
 				var submitUrl = BuildForm.host + '/fmedatastreaming	/' + BuildForm.workspacePath + '?INSPIRGML=' + files;
 				submitUrl = submitUrl + '&SchemaFile=' + SchemaFile;
-				
+
 
 				//submit
 				$.get(submitUrl)
-					.done(function(result){					
+					.done(function(result){
 						 BuildForm.displayResults(result, true);
 					})
 					.fail(function(textStatus){
@@ -255,7 +255,7 @@ var BuildForm = {
 					}
 				}
 			};
-		}  
+		}
 	},
 
 	toggleSelection : function(e){
