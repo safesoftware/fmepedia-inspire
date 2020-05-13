@@ -10,12 +10,12 @@ var FMEServer = {
 	},
 
 	getParams : function(repository, wrkspName){
-		var url = FMEServer.svrHost + '/fmerest/repositories/' + repository + '/' + wrkspName + '/parameters.json?token=' + FMEServer.token;
+		var url = "https://demos-safe-software.fmecloud.com/fmerest/apidoc/v3/#!/repositories/parameters_get_32";
 		var params = null;
 
 		$.ajax({
-			url: url, 
-			async: false, 
+			url: url,
+			async: false,
 			dataType: 'json',
 			success: function(json){
 				params = json;
@@ -26,38 +26,38 @@ var FMEServer = {
 
 	//gets the current session id from FME Server
 	//can use this to get the path to any files added through
-	//the file upload service	
+	//the file upload service
 	getSessionID : function (wrkspPath){
 		//returns null if there is an error
 		var url = FMEServer.svrHost + '/fmedataupload/' + wrkspPath + '?opt_extractarchive=false&opt_pathlevel=3&opt_fullpath=true';
 		var sessionID = null;
-		
+
 		$.ajax({
-			url: url, 
-			async: false, 
-			dataType: 'json', 
+			url: url,
+			async: false,
+			dataType: 'json',
 			success: function(json){
 				sessionID = json.serviceResponse.session;
 			}
 		});
 
 		return sessionID;
-	}, 
-	
+	},
+
 	runDataDownload: function (repository, wrkspName, params){
 
     	var url = svrHost + '/fmedatadownload/' + repository + '/' + wrkspName + '.fmw?' + params;
 
 		$.ajax({
-			url: url, 
-			async: false, 
+			url: url,
+			async: false,
 			dataType: 'json',
 			success: function(json){
 				result = json;
 			}
 		})
 		return result;
-                	
+
     }
 
 }
