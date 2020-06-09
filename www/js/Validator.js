@@ -241,18 +241,16 @@ var BuildForm = {
 	buildParams : function(json){
 		//parse JSON response
 		//add in drop down menu options from workspace
-		var paramArray = json.serviceResponse.parameters.parameter;
-
-		for (var i = 0; i < paramArray.length; i++){
+		for (var i = 0; i < json.length; i++){
 			//populate drop-down options for choice-type parameters
-			if (paramArray[i].type == 'LOOKUP_CHOICE'){
+			if (json[i].type == 'LOOKUP_CHOICE'){
 				//populate drop-down options on page
-				var optionArray = paramArray[i].options.option;
+				var optionArray = json[i].options.option;
 				for (var x = 0; x < optionArray.length; x++){
 					if (optionArray[x].value == 'SDF3' || optionArray[x].value == 'SQLITE3FDO'){}
 					else{
 						var option = $('<option />', {value: optionArray[x].value, text: optionArray[x].displayAlias});
-						$('#' + paramArray[i].name).append(option);
+						$('#' + json[i].name).append(option);
 					}
 				}
 			};

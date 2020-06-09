@@ -10,7 +10,7 @@ var FMEServer = {
 	},
 
 	getParams : function(repository, wrkspName){
-		var url = "https://demos-safe-software.fmecloud.com/fmerest/apidoc/v3/#!/repositories/parameters_get_32";
+		var url = FMEServer.svrHost + '/fmerest/v3/repositories/' + repository + '/items/' + wrkspName + '.fmw/parameters?fmetoken=' + FMEServer.token
 		var params = null;
 
 		$.ajax({
